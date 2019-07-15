@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+
+    let intArray = [1, 2, 3, 4, 6, 7, 9, 11, 12, 14, 15, 16, 17, 19, 33, 34, 43, 45, 55, 66];
+
+    function searchBinary(arr, data) {
+        let lowerBound = 0;
+        let upperBound = arr.length - 1;
+        let midPoint = -1;
+        let index = -1;
+
+        while (lowerBound <= upperBound) {
+
+            midPoint = Math.round((lowerBound + upperBound) / 2);
+
+            if (arr[midPoint] === data) {
+                index = midPoint;
+                break;
+            } else {
+                if (arr[midPoint] < data) {
+                    lowerBound = midPoint + 1;
+                } else {
+                    upperBound = midPoint - 1;
+                }
+            }
+        }
+        return index;
+    }
+
+    let res = searchBinary(intArray, 6);
+
+    alert(res);
+
+
+</script>
+
+</body>
+</html>
